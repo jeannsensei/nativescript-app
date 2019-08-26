@@ -1,5 +1,22 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <ActionBar [title]="title"></ActionBar>
-<StackLayout  class="p-20">
-    <Label text="Welcome to {{ title }}!" class="h1 text-center" textWrap="true"></Label>
+<StackLayout class="p-20">
+    <Label text="Hola chiamo, desde la vista del app" class="h1 text-center" textWrap="true"></Label>
+    <Button class="btn btn-primary btn-active" id="button" text="Dame click" (tap)="onTap($event)"></Button>
+
+
+    <Button [text]="buttonText" class="btn btn-primary btn-active" (tap)="disableTextView()"></Button>
+    <Button text="Show text" class="btn btn-outline btn-active" (tap)="showText()"></Button>
+
+    <Label text="Enter text:" class="label"></Label>
+    <TextView [(ngModel)]="texto" hint="Ingresa el texto..." [editable]="editState" class="input input-border">
+    </TextView>
+
+    <Button text="Show/hide block" (tap)="onTap2()" class="btn btn-primary btn-active"></Button>
+
+    <Label class="h1" text="GET de REQRES"></Label>
+    <StackLayout *ngFor="let user of userList" class="list-group-item">
+        <Label class="h3" [text]="user.first_name + ' ' + user.last_name"></Label>
+    </StackLayout>
+
 </StackLayout>
